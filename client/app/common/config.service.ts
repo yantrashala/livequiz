@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class ConfigService {
-     baseUrl= 'http://10.150.192.133:3000/api/';
+     baseUrl= '/api/';
 
      questionApiUrl:string = this.baseUrl + 'Questions'; 
      userApiUrl:string = this.baseUrl + 'Participants';
