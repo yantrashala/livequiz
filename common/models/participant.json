@@ -1,0 +1,29 @@
+{
+  "name": "Participant",
+   "forceId": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+     "score": {
+      "type": "number",
+      "default":0,
+      "required": false
+    }
+  },
+  "validations": [],
+    "relations": {},
+  "acls": [],
+  "methods": {
+    "updateScore": {
+        "http" : { "verb": "post"},
+     	"accepts": { "arg": "data", "type": "object", "http": { "source": "body" } },
+        "returns": {
+                "arg": "result",
+                "type": "Boolean",
+                "root":true
+        }
+    }
+  }
+}
