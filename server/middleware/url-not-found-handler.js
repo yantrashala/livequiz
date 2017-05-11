@@ -7,7 +7,6 @@ module.exports = function () {
     return function customRouteForClient(req, res, next) {
 		
 		var indexFilePath = path.resolve(__dirname,"../../client","index.html")
-		console.log('customRouteForClient() called...', indexFilePath )
 		
         res.sendFile( indexFilePath, function (err) {
             if (err) {
