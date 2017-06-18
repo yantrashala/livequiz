@@ -1,0 +1,57 @@
+{
+  "name": "Quiz",
+  "plural": "n",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "FireLoop": true,
+    "TimeStamp": {
+      "required": false
+    },
+    "Stats": [
+      {
+        "method": "stats",
+        "endpoint": "/stats",
+        "description": "Statistical information for Quiz registers.",
+        "type": "model",
+        "count": {
+          "on": "createdAt",
+          "by": "index"
+        }
+      }
+    ]
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "questions": {
+      "type": [
+        "object"
+      ]
+    },
+    "hash": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "quizInstances": {
+      "type": "hasMany",
+      "model": "QuizInstance",
+      "foreignKey": "quizId"
+    },
+    "quizCreator": {
+      "type": "belongsTo",
+      "model": "QuizCreator",
+      "foreignKey": "publisherId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
